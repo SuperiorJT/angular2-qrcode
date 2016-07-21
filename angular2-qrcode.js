@@ -23,7 +23,6 @@ var QRCodeComponent = (function () {
             this.qr = qrcode(this.type, this.level);
             this.qr.addData(this.data);
             this.qr.make();
-            console.log(this.qr);
             var imgTagString = this.qr.createImgTag(this.type, 0);
             var el = this.elementRef.nativeElement;
             el.innerHTML = imgTagString;

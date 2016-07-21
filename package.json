@@ -1,8 +1,12 @@
 {
   "name": "angular2-qrcode",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An Angular 2 component that generates a QR Code.",
   "main": "angular2-qrcode.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SuperiorJT/angular2-qrcode.git"
+  },
   "scripts": {
     "preinstall": "npm i typings -g",
     "prepublish": "typings install && tsc",

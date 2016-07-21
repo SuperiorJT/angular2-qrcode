@@ -1,3 +1,4 @@
+[![npm version](https://badge.fury.io/js/angular2-qrcode.svg)](https://badge.fury.io/js/angular2-qrcode)
 # angular2-qrcode
 angular2-qrcode is a component that you can easily integrate into your project. It relies on [qrcode-generator](https://github.com/kazuhikoarase/qrcode-generator) to generate QR Codes.
 
