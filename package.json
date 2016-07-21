@@ -1,0 +1,36 @@
+{
+  "name": "angular2-qrcode",
+  "version": "1.0.0",
+  "description": "An Angular 2 component that generates a QR Code.",
+  "main": "angular2-qrcode.js",
+  "scripts": {
+    "preinstall": "npm i typings -g",
+    "prepublish": "typings install && tsc",
+    "postinstall": "typings install"
+  },
+  "keywords": [
+    "qrcode",
+    "qr",
+    "code",
+    "angular2",
+    "angular",
+    "2",
+    "ng2"
+  ],
+  "dependencies": {
+    "qrcode-generator": "^1.0.0"
+  },
+  "peerDependencies": {
+    "@angular/core": "2.0.0-rc.4",
+    "rxjs": "5.0.0-beta.6",
+    "zone.js": "0.6.12"
+  },
+  "devDependencies": {
+    "es6-promise": "^3.2.1",
+    "es6-shim": "^0.35.1",
+    "typescript": "^1.8.10"
+  },
+  "typings": "angular2-qrcode.d.ts",
+  "author": "superiorjt <superiorjt@gmail.com>",
+  "license": "MIT"
+}
