@@ -1,6 +1,6 @@
 {
   "name": "angular2-qrcode",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "An Angular 2 component that generates a QR Code.",
   "main": "angular2-qrcode.js",
   "repository": {
@@ -25,7 +25,7 @@
     "qrcode-generator": "^1.0.0"
   },
   "peerDependencies": {
-    "@angular/core": "2.0.0-rc.4",
+    "@angular/core": "2.0.0-rc.5",
     "rxjs": "5.0.0-beta.6",
     "zone.js": "0.6.12"
   },
