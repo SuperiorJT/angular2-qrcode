@@ -8,11 +8,34 @@ angular2-qrcode is a component that you can easily integrate into your project. 
 
 ## How To Use
 
-### Include the component and declare it as Directive
+### RC5 UPDATE: Import into your NgModule and use it as Directive
+
+```
+import { NgModule } from '@angular/core';
+import { QRCodeModule } from 'angular2-qrcode';
+
+...
+
+@NgModule({
+    imports: [
+        QRCodeModule,
+        ...
+    ]
+})
+```
+
+In component template:
+```
+<div>
+    <qr-code [data]="'All QR Code data goes here!'" [size]="150"></qr-code>
+</div>
+```
+
+### RC4: Import the component and declare it as Directive
 
 ```
 import {Component, OnInit} from '@angular/core';
-import {QRCodeComponent} from 'angular2-qrcode'
+import {QRCodeComponent} from 'angular2-qrcode';
 
 @Component({
   selector: 'my-qr-code-component',

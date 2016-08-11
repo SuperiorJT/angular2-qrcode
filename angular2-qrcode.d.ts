@@ -9,3 +9,4 @@ export declare class QRCodeComponent implements OnInit {
     constructor(elementRef: ElementRef);
     ngOnInit(): void;
 }
+export declare class QRCodeModule { }

@@ -1,4 +1,10 @@
-import {Component, Input, ElementRef, OnInit} from '@angular/core';
+import {
+    NgModule,
+    Component,
+    Input,
+    ElementRef,
+    OnInit
+} from '@angular/core';
 import qrcode = require('qrcode-generator');
 
 @Component({
@@ -35,3 +41,10 @@ export class QRCodeComponent implements OnInit {
         }
     }
 }
+
+@NgModule({
+    exports: [ QRCodeComponent ],
+    declarations: [ QRCodeComponent ],
+    entryComponents: [ QRCodeComponent ]
+})
+export class QRCodeModule { }
