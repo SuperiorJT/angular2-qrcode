@@ -7,11 +7,7 @@
     "type": "git",
     "url": "git+https://github.com/SuperiorJT/angular2-qrcode.git"
   },
-  "scripts": {
-    "preinstall": "npm i typings -g",
-    "prepublish": "typings install && tsc",
-    "postinstall": "typings install"
-  },
+  "scripts": { },
   "keywords": [
     "qrcode",
     "qr",
