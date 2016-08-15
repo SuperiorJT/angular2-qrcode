@@ -31,7 +31,7 @@ In component template:
 </div>
 ```
 
-### RC4: Import the component and declare it as Directive
+### Import the component and declare it as Directive
 
 ```
 import {Component, OnInit} from '@angular/core';
