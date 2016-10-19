@@ -26,9 +26,8 @@
     "zone.js": "0.6.12"
   },
   "devDependencies": {
-    "es6-promise": "^3.2.1",
-    "es6-shim": "^0.35.1",
-    "typescript": "^1.8.10"
+    "@angular/core": "^2.0.0",
+    "typescript": "^2.0.0"
   },
   "typings": "angular2-qrcode.d.ts",
   "author": "superiorjt <superiorjt@gmail.com>",
