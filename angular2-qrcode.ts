@@ -15,7 +15,6 @@ import * as qrcode from "qrcode-generator";
 })
 export class QRCodeComponent implements OnChanges {
     ngOnChanges(changes: SimpleChanges): void {
-        console.log('ngOnChanges');
         for (var name in changes) {
             if (name == 'data') {
                 this.generate();
