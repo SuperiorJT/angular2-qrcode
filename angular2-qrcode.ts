@@ -15,10 +15,8 @@ import * as qrcode from "qrcode-generator";
 })
 export class QRCodeComponent implements OnChanges {
     ngOnChanges(changes: SimpleChanges): void {
-        for (var name in changes) {
-            if (name == 'data') {
-                this.generate();
-            }
+        if ('data' in changes) {
+            this.generate();
         }
     }
 
@@ -28,10 +26,8 @@ export class QRCodeComponent implements OnChanges {
     @Input() level: string = 'M';
 
 
-
-    constructor(
-        private elementRef: ElementRef
-    ) {}
+    constructor(private elementRef: ElementRef) {
+    }
 
     generate() {
         try {
@@ -52,8 +48,9 @@ export class QRCodeComponent implements OnChanges {
 }
 
 @NgModule({
-    exports: [ QRCodeComponent ],
-    declarations: [ QRCodeComponent ],
-    entryComponents: [ QRCodeComponent ]
+    exports: [QRCodeComponent],
+    declarations: [QRCodeComponent],
+    entryComponents: [QRCodeComponent]
 })
-export class QRCodeModule { }
+export class QRCodeModule {
+}
