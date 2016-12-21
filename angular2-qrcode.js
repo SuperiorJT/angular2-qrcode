@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var qrcode = require('qrcode-generator');
+var qrcode = require("qrcode-generator");
 var QRCodeComponent = (function () {
     function QRCodeComponent(elementRef) {
         this.elementRef = elementRef;
@@ -18,12 +18,20 @@ var QRCodeComponent = (function () {
         this.type = 4;
         this.level = 'M';
     }
-    QRCodeComponent.prototype.ngOnInit = function () {
+    QRCodeComponent.prototype.ngOnChanges = function (changes) {
+        console.log('ngOnChanges');
+        for (var name in changes) {
+            if (name == 'data') {
+                this.generate();
+            }
+        }
+    };
+    QRCodeComponent.prototype.generate = function () {
         try {
-            this.qr = qrcode(this.type, this.level);
-            this.qr.addData(this.data);
-            this.qr.make();
-            var imgTagString = this.qr.createImgTag(this.type, 0);
+            var qr = qrcode(this.type, this.level);
+            qr.addData(this.data);
+            qr.make();
+            var imgTagString = qr.createImgTag(this.type, 0);
             var el = this.elementRef.nativeElement;
             el.innerHTML = imgTagString;
             var imgTagObject = el.firstElementChild;
@@ -52,6 +60,7 @@ var QRCodeComponent = (function () {
     ], QRCodeComponent.prototype, "level", void 0);
     QRCodeComponent = __decorate([
         core_1.Component({
+            moduleId: 'module.id',
             selector: 'qr-code',
             template: ''
         }), 

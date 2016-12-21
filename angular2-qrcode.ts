@@ -3,34 +3,39 @@ import {
     Component,
     Input,
     ElementRef,
-    OnInit
+    OnChanges,
+    SimpleChanges
 } from '@angular/core';
-import qrcode = require('qrcode-generator');
+import * as qrcode from "qrcode-generator";
 
 @Component({
+    moduleId: 'module.id',
     selector: 'qr-code',
     template: ''
 })
-export class QRCodeComponent implements OnInit {
+export class QRCodeComponent implements OnChanges {
+    ngOnChanges(changes: SimpleChanges): void {
+        if ('data' in changes) {
+            this.generate();
+        }
+    }
 
     @Input() data: string = '';
     @Input() size: number = 128;
     @Input() type: number = 4;
     @Input() level: string = 'M';
 
-    private qr: QRCode;
 
-    constructor(
-        private elementRef: ElementRef
-    ) {}
+    constructor(private elementRef: ElementRef) {
+    }
 
-    ngOnInit() {
+    generate() {
         try {
-            this.qr = qrcode(this.type, this.level);
-            this.qr.addData(this.data);
-            this.qr.make();
+            let qr = qrcode(this.type, this.level);
+            qr.addData(this.data);
+            qr.make();
 
-            let imgTagString = this.qr.createImgTag(this.type, 0);
+            let imgTagString = qr.createImgTag(this.type, 0);
             let el: HTMLElement = this.elementRef.nativeElement;
             el.innerHTML = imgTagString;
             let imgTagObject: HTMLImageElement = <HTMLImageElement> el.firstElementChild;
@@ -43,8 +48,9 @@ export class QRCodeComponent implements OnInit {
 }
 
 @NgModule({
-    exports: [ QRCodeComponent ],
-    declarations: [ QRCodeComponent ],
-    entryComponents: [ QRCodeComponent ]
+    exports: [QRCodeComponent],
+    declarations: [QRCodeComponent],
+    entryComponents: [QRCodeComponent]
 })
-export class QRCodeModule { }
+export class QRCodeModule {
+}

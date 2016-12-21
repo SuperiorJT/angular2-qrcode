@@ -1,12 +1,13 @@
-import { ElementRef, OnInit } from '@angular/core';
-export declare class QRCodeComponent implements OnInit {
+import { ElementRef, OnChanges, SimpleChanges } from '@angular/core';
+export declare class QRCodeComponent implements OnChanges {
     private elementRef;
+    ngOnChanges(changes: SimpleChanges): void;
     data: string;
     size: number;
     type: number;
     level: string;
-    private qr;
     constructor(elementRef: ElementRef);
-    ngOnInit(): void;
+    generate(): void;
 }
-export declare class QRCodeModule { }
+export declare class QRCodeModule {
+}
