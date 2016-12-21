@@ -8,7 +8,7 @@ angular2-qrcode is a component that you can easily integrate into your project. 
 
 ## How To Use
 
-### RC5 UPDATE: Import into your NgModule and use it as Directive
+### Import into your NgModule and use it as Directive
 
 ```
 import { NgModule } from '@angular/core';
