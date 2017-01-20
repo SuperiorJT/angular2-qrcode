@@ -9,5 +9,6 @@ export declare class QRCodeComponent implements OnChanges {
     constructor(elementRef: ElementRef);
     generate(): void;
 }
+@NgModule()
 export declare class QRCodeModule {
 }
