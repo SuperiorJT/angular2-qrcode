@@ -8,79 +8,125 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var qrcode = require("qrcode-generator");
+var core_1 = require("@angular/core");
+var QRious = require("qrious");
 var QRCodeComponent = (function () {
     function QRCodeComponent(elementRef) {
         this.elementRef = elementRef;
-        this.data = '';
-        this.size = 128;
-        this.type = 4;
-        this.level = 'M';
+        this.background = 'white';
+        this.backgroundAlpha = 1.0;
+        this.foreground = 'black';
+        this.foregroundAlpha = 1.0;
+        this.level = 'L';
+        this.mime = 'image/png';
+        this.padding = null;
+        this.size = 100;
+        this.value = '';
+        this.canvas = false;
     }
     QRCodeComponent.prototype.ngOnChanges = function (changes) {
-        console.log('ngOnChanges');
-        for (var name in changes) {
-            if (name == 'data') {
-                this.generate();
-            }
+        if ('background' in changes ||
+            'backgroundAlpha' in changes ||
+            'foreground' in changes ||
+            'foregroundAlpha' in changes ||
+            'level' in changes ||
+            'mime' in changes ||
+            'padding' in changes ||
+            'size' in changes ||
+            'value' in changes ||
+            'canvas' in changes) {
+            this.generate();
         }
     };
     QRCodeComponent.prototype.generate = function () {
         try {
-            var qr = qrcode(this.type, this.level);
-            qr.addData(this.data);
-            qr.make();
-            var imgTagString = qr.createImgTag(this.type, 0);
             var el = this.elementRef.nativeElement;
-            el.innerHTML = imgTagString;
-            var imgTagObject = el.firstElementChild;
-            imgTagObject.width = this.size;
-            imgTagObject.height = this.size;
+            el.innerHTML = '';
+            var qr = new QRious({
+                background: this.background,
+                backgroundAlpha: this.backgroundAlpha,
+                foreground: this.foreground,
+                foregroundAlpha: this.foregroundAlpha,
+                level: this.level,
+                mime: this.mime,
+                padding: this.padding,
+                size: this.size,
+                value: this.value
+            });
+            if (this.canvas) {
+                el.appendChild(qr.canvas);
+            }
+            else {
+                el.appendChild(qr.image);
+            }
         }
         catch (e) {
             console.error("Could not generate QR Code: " + e.message);
         }
     };
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', String)
-    ], QRCodeComponent.prototype, "data", void 0);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Number)
-    ], QRCodeComponent.prototype, "size", void 0);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Number)
-    ], QRCodeComponent.prototype, "type", void 0);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', String)
-    ], QRCodeComponent.prototype, "level", void 0);
-    QRCodeComponent = __decorate([
-        core_1.Component({
-            moduleId: 'module.id',
-            selector: 'qr-code',
-            template: ''
-        }), 
-        __metadata('design:paramtypes', [core_1.ElementRef])
-    ], QRCodeComponent);
     return QRCodeComponent;
 }());
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String)
+], QRCodeComponent.prototype, "background", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Number)
+], QRCodeComponent.prototype, "backgroundAlpha", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String)
+], QRCodeComponent.prototype, "foreground", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Number)
+], QRCodeComponent.prototype, "foregroundAlpha", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String)
+], QRCodeComponent.prototype, "level", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String)
+], QRCodeComponent.prototype, "mime", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Number)
+], QRCodeComponent.prototype, "padding", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Number)
+], QRCodeComponent.prototype, "size", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String)
+], QRCodeComponent.prototype, "value", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Boolean)
+], QRCodeComponent.prototype, "canvas", void 0);
+QRCodeComponent = __decorate([
+    core_1.Component({
+        moduleId: 'module.id',
+        selector: 'qr-code',
+        template: ""
+    }),
+    __metadata("design:paramtypes", [core_1.ElementRef])
+], QRCodeComponent);
 exports.QRCodeComponent = QRCodeComponent;
 var QRCodeModule = (function () {
     function QRCodeModule() {
     }
-    QRCodeModule = __decorate([
-        core_1.NgModule({
-            exports: [QRCodeComponent],
-            declarations: [QRCodeComponent],
-            entryComponents: [QRCodeComponent]
-        }), 
-        __metadata('design:paramtypes', [])
-    ], QRCodeModule);
     return QRCodeModule;
 }());
+QRCodeModule = __decorate([
+    core_1.NgModule({
+        exports: [QRCodeComponent],
+        declarations: [QRCodeComponent],
+        entryComponents: [QRCodeComponent]
+    }),
+    __metadata("design:paramtypes", [])
+], QRCodeModule);
 exports.QRCodeModule = QRCodeModule;
 //# sourceMappingURL=angular2-qrcode.js.map
