@@ -1,6 +1,12 @@
 [![npm version](https://badge.fury.io/js/angular2-qrcode.svg)](https://badge.fury.io/js/angular2-qrcode)
 # angular2-qrcode
-angular2-qrcode is a component that you can easily integrate into your project. It relies on [qrcode-generator](https://github.com/kazuhikoarase/qrcode-generator) to generate QR Codes.
+angular2-qrcode is a component that you can easily integrate into your project. It relies on [qrious](https://github.com/neocotic/qrious) to generate QR Codes.
+
+## Breaking Changes for 2.0.0
+
+`data` has been replaced with `value`. For those that don't need the new features of `2.0.0`, just keep using `1.0.5`. No change will be needed unless you upgrade.
+
+The `type` field has also been removed.
 
 ## Install
     
@@ -27,7 +33,7 @@ import { QRCodeModule } from 'angular2-qrcode';
 In component template:
 ```
 <div>
-    <qr-code [data]="'All QR Code data goes here!'" [size]="150"></qr-code>
+    <qr-code [value]="'All QR Code data goes here!'" [size]="150"></qr-code>
 </div>
 ```
 
@@ -42,7 +48,7 @@ import {QRCodeComponent} from 'angular2-qrcode';
   directives: [QRCodeComponent],
   template: `
     <div>
-      <qr-code [data]="'All QR Code data goes here!'" [size]="150"></qr-code>
+      <qr-code [value]="'All QR Code data goes here!'" [size]="150"></qr-code>
     </div>
   `
 })
@@ -52,14 +58,16 @@ import {QRCodeComponent} from 'angular2-qrcode';
 
 | Attribute        | Type           | Default | Description  |
 | ------------- |-------------| -----|------------|
-| data      | String | '' | Your data string |
-| size      | Number | 128     | This is the height/width of your QR Code component |
-| level | String | 'M'    | QR Correction level ('L', 'M', 'Q', 'H') |
-| type | Number | 4 | Buffer size for data string
-
-## Note
-
-If you have `code length overflow` errors, you need to increase the `[type]` value to increase the buffer for your data string.
+| value      | String | '' | Your data string |
+| size      | Number | 100     | This is the height/width of your QR Code component |
+| level | String | 'L'    | QR Correction level ('L', 'M', 'Q', 'H') |
+| background | String | 'white' | The color for the background |
+| backgroundAlpha | Number | 1.0 | The opacity of the background |
+| foreground | String | 'black' | The color for the foreground |
+| foregroundAlpha | Number | 1.0 | The opacity of the foreground |
+| mime | String | 'image/png' | The mime type for the output image |
+| padding | Number | null | The padding around the QR Code |
+| canvas | Boolean | false | Will output a canvas element if true |
 
 ## License
 MIT License
