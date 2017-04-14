@@ -7,7 +7,9 @@
     "type": "git",
     "url": "git+https://github.com/SuperiorJT/angular2-qrcode.git"
   },
-  "scripts": {},
+  "scripts": {
+    "ngc": "ngc"
+  },
   "keywords": [
     "qrcode",
     "qr",
@@ -19,19 +21,32 @@
   ],
   "files": [
     "angular2-qrcode.d.ts",
+    "angular2-qrcode.metadata.json",
     "angular2-qrcode.js",
     "angular2-qrcode.js.map",
     "README.md"
   ],
   "dependencies": {
-    "qrious": "^2.2.0"
+    "qrious": "^2.2.0",
+    "@angular/common": "^2.2.1",
+    "@angular/compiler": "^2.2.1",
+    "@angular/compiler-cli": "^2.2.1",
+    "@angular/core": "^2.2.1",
+    "@angular/platform-browser": "^2.2.1",
+    "@angular/platform-browser-dynamic": "^2.2.1",
+    "@angular/platform-server": "^2.2.1",
+    "rxjs": "5.0.0-beta.12",
+    "zone.js": "0.6.26"
   },
   "peerDependencies": {
     "@angular/core": "^2.0.0"
   },
   "devDependencies": {
+    "@angular/compiler": "^4.0.2",
+    "@angular/compiler-cli": "^4.0.2",
     "@angular/core": "^2.0.0",
-    "typescript": "^2.0.0"
+    "@angular/platform-server": "^4.0.2",
+    "typescript": "^2.2.2"
   },
   "typings": "angular2-qrcode.d.ts",
   "author": "superiorjt <superiorjt@gmail.com>",
