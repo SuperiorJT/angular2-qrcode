@@ -1,2 +1,7 @@
 node_modules/
 .npmrc
+compiled
+*.metadata.json
+# These lines were probably already there
+*.map.js
+*.js  # or /src/**/*.js
