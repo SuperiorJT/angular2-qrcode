@@ -21,6 +21,7 @@
   ],
   "files": [
     "angular2-qrcode.d.ts",
+    "angular2-qrcode.metadata.json",
     "angular2-qrcode.js",
     "angular2-qrcode.js.map",
     "README.md"

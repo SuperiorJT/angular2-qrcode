@@ -1,6 +1,6 @@
 node_modules/
 .npmrc
-compiled
+./compiled
 *.metadata.json
 # These lines were probably already there
 *.map.js
