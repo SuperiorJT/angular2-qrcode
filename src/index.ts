@@ -6,7 +6,8 @@ import {
     OnChanges,
     SimpleChanges
 } from '@angular/core';
-import * as QRious from 'qrious';
+
+import QRious from 'qrious';
 
 @Component({
     moduleId: 'module.id',
@@ -74,8 +75,7 @@ export class QRCodeComponent implements OnChanges {
 
 @NgModule({
     exports: [QRCodeComponent],
-    declarations: [QRCodeComponent],
-    entryComponents: [QRCodeComponent]
+    declarations: [QRCodeComponent]
 })
 export class QRCodeModule {
 }

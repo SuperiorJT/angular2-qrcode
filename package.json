@@ -2,12 +2,21 @@
   "name": "angular2-qrcode",
   "version": "2.0.0",
   "description": "An Angular 2 component that generates a QR Code.",
-  "main": "angular2-qrcode.js",
+  "main": "lib/angular2-qrcode.umd.js",
+  "module": "lib/angular2-qrcode.js",
+  "typings": "lib/angular2-qrcode.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SuperiorJT/angular2-qrcode.git"
   },
-  "scripts": {},
+  "scripts": {
+    "clean": "rimraf lib && rimraf build",
+    "ngc": "ngc -p src/tsconfig.json",
+    "rollup:fesm": "rollup build/angular2-qrcode.js -o lib/angular2-qrcode.js",
+    "rollup:umd": "rollup build/angular2-qrcode.js -o lib/angular2-qrcode.umd.js --format umd --name angular2-qrcode",
+    "copy-metadata": "copyfiles -f build/**metadata.json build/angular2-qrcode.d.ts build/index** lib",
+    "build": "npm run clean && npm run ngc && npm run rollup:fesm && npm run rollup:umd && npm run copy-metadata && rimraf build"
+  },
   "keywords": [
     "qrcode",
     "qr",
@@ -17,23 +26,32 @@
     "2",
     "ng2"
   ],
-  "files": [
-    "angular2-qrcode.d.ts",
-    "angular2-qrcode.js",
-    "angular2-qrcode.js.map",
-    "README.md"
+  "files":[
+    "lib"
   ],
   "dependencies": {
     "qrious": "^2.2.0"
   },
   "peerDependencies": {
-    "@angular/core": "^2.0.0"
+    "@angular/core": ">=2.0.0"
   },
   "devDependencies": {
-    "@angular/core": "^2.0.0",
-    "typescript": "^2.0.0"
+    "@angular/common": "4.0.2",
+    "@angular/compiler": "4.0.2",
+    "@angular/compiler-cli": "4.0.2",
+    "@angular/core": "4.0.2",
+    "@angular/platform-browser": "4.0.2",
+    "@angular/platform-browser-dynamic": "4.0.2",
+    "@types/node": "~6.0.60",
+    "copyfiles": "1.2.0",
+    "core-js": "^2.4.1",
+    "rimraf": "^2.6.1",
+    "rollup": "0.41.6",
+    "rxjs": "5.1.0",
+    "ts-node": "~2.0.0",
+    "typescript": "2.2.2",
+    "zone.js": "^0.8.4"
   },
-  "typings": "angular2-qrcode.d.ts",
   "author": "superiorjt <superiorjt@gmail.com>",
   "license": "MIT"
 }

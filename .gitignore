@@ -1,2 +1,23 @@
-node_modules/
+node_modules/*
+lib
+build
 .npmrc
+*.js
+*.map
+
+############
+## Windows
+############
+
+# Windows image file caches
+Thumbs.db
+
+# Folder config file
+Desktop.ini
+
+############
+## Mac
+############
+
+# Mac crap
+.DS_Store
