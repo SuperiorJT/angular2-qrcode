@@ -14,7 +14,7 @@ The `type` field has also been removed.
 
 ## How To Use
 
-### Import into your NgModule and use it as Directive
+### Import into your NgModule
 
 ```
 import { NgModule } from '@angular/core';
@@ -35,23 +35,6 @@ In component template:
 <div>
     <qr-code [value]="'All QR Code data goes here!'" [size]="150"></qr-code>
 </div>
-```
-
-### Import the component and declare it as Directive
-
-```
-import {Component, OnInit} from '@angular/core';
-import {QRCodeComponent} from 'angular2-qrcode';
-
-@Component({
-  selector: 'my-qr-code-component',
-  directives: [QRCodeComponent],
-  template: `
-    <div>
-      <qr-code [value]="'All QR Code data goes here!'" [size]="150"></qr-code>
-    </div>
-  `
-})
 ```
 
 ## Parameters
