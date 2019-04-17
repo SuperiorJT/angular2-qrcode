@@ -30,7 +30,7 @@
     "lib"
   ],
   "dependencies": {
-    "qrious": "^2.2.0"
+    "qrious": "^4.0.2"
   },
   "peerDependencies": {
     "@angular/core": ">=2.0.0"
