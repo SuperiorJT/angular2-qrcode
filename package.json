@@ -1,6 +1,6 @@
 {
   "name": "angular2-qrcode",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "An Angular 2 component that generates a QR Code.",
   "main": "lib/angular2-qrcode.umd.js",
   "module": "lib/angular2-qrcode.js",
